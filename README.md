@@ -164,7 +164,6 @@ links_data.head()
 ```python
 # Get Summary info of the links dataframe
 links_data.info()
-
 ```
 
 ```python
@@ -254,22 +253,21 @@ We can drop columns that will not be of use as of now. This will include the tim
 
 We can now merge the data to have one dataset to explore.
 ### 3.1.4 Merging the datasets and handling missing values & duplicates
-# Merge ratings with movie titles
 
 ```python
+# Merge ratings with movie titles
 merged_df = ratings_data.merge(movies_data, on="movieId", how="left")
 merged_df.info()
-
 ```
 
 ```python
 # Merge with the tags data
 merged_df = merged_df.merge(tags_data[['userId', 'movieId', 'tag']], on=["userId", "movieId"], how="left")
 merged_df.info()
-
+```
+```python
 # Check null values
 merged_df.isnull().sum()
-
 ```
 The merged data has 99,201 values missing on the tags column. The dtype is object (string).
 
@@ -278,14 +276,14 @@ We can then handle the null values by replacing 'null' by 'Unknown'
 ```python
 # Replace nulls
 merged_df.fillna("Unknown", inplace=True)
-
+```
+```python
 # Recheck nulls
 merged_df.isna().sum()
-
+```
+```python
 # Check for duplicates
 merged_df.duplicated().sum()
-
-
 ```
 # 4. Exploring the Dataset
 ## 4.1 Univariate
@@ -333,7 +331,7 @@ merged_df.duplicated().sum()
 
 # 5. Conclusion
 From the model created:
-1. A K_Nearest Neighbours (KNN) model performs much better than and SVD model for such a recommendation system even without fine tuning. (Note: Requires resources to fine tune). Meaning it will be much improved.
+1. A Singular Value Decomposition (SVD) model performs much better than KNN model for such a recommendation system even without fine tuning. (Note: Requires resources to fine tune). Meaning it will be much improved.
 
 2. A collaborative-filtering method of recommendation gives different results compared to content-Based filtering.
 
@@ -341,8 +339,10 @@ From the model created:
 
 # 6. Recommendations
 The recommendations are as follows:
-1. Modeling with KNN is much better or a good model for comparison.
+1. Modeling with SVD is much better when using recommendation system.
 
 2. Other models should be tried to compare performances.
 
-3. When using KNN, consider the resources to use especially when fine-tuning the model.
+3. When using KNN, consider the resources to use especially when fine-tuning the model. 
+
+4. SVD model is recommended as it is generally better at capturing latent patterns in user-item interactions, leading to better predictions.
