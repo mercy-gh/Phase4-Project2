@@ -108,6 +108,7 @@ import pandas as pd
 print("Hello, MovieLens!")
 </code>
 </pre>
+```
 
 **imports** 
 **# import data manipulation libraries**
