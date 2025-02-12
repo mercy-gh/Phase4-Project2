@@ -127,14 +127,14 @@ We can drop columns that will not be of use as of now.
 ![Alt text](https://github.com/mercy-gh/Phase4-Project2/blob/main/Images/Top10MostRatedMovies.png)
 
 ### 4.1.3 Most common genres
-![Alt text](https://github.com/mercy-gh/Phase4-Project2/blob/main/Images/MostCommonMovieGenres.png")
+![Alt text](https://github.com/mercy-gh/Phase4-Project2/blob/main/Images/MostCommonMovieGenres.png)
 
 ### 4.1.4 User activity
-![Alt text](https://github.com/mercy-gh/Phase4-Project2/blob/main/ImagesNumberofRatingsperUser.png)
+![Alt text](https://github.com/mercy-gh/Phase4-Project2/blob/main/Images/NumberofRatingsperUser.png)
 
 ## 4.2 Bivariate
 ### 4.2.1 Average Rating per Movie
-![Alt text](https://github.com/mercy-gh/Phase4-Project2/blob/main/ImagesTop10HighestRatedMovies(withaminof50ratings).png)
+![Alt text](https://github.com/mercy-gh/Phase4-Project2/blob/main/Images/Top10HighestRatedMovies(withaminof50ratings).png)
 
 ### 4.2.2 Rating vs. Number of Ratings (Popularity Bias)
 ![Alt text](https://github.com/mercy-gh/Phase4-Project2/blob/main/Images/RelationshipBetweenNumberofRatingsandAverageRating.png)
