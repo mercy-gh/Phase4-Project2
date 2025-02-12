@@ -121,13 +121,13 @@ We can drop columns that will not be of use as of now.
 ## 4.1 Univariate
 
 ### 4.1.1 Ratings distribution
-![Alt text](Images\Distribution of Movie Ratings.png)
+[Alt text](Images\Distribution of Movie Ratings.png)
 
 ### 4.1.2 Top 10 most rated
-![Alt text](Images\Top 10 Most Rated Movies.png)
+[Alt text](Images\Top 10 Most Rated Movies.png)
 
 ### 4.1.3 Most common genres
-![Alt text](Images\Most Common Movie Genres.png)
+[Alt text](Images\Most Common Movie Genres.png)
 
 ### 4.1.4 User activity
 ![Alt text](Images\Number of Ratings per User.png)
