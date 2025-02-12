@@ -1,3 +1,4 @@
+
 # 1 Business Understanding
 
 ## 1.0 Overview
@@ -34,9 +35,9 @@ The objective is to examine and use the dataset to boost user engagement by deve
 
 &#x2A3B; Feature Engineering – Transform text tags into meaningful numerical features.
 
-&#x2A39; Model Selection – Choose between collaborative filtering, content-based filtering, or hybrid models.
+&#x2A39; Model Selection – Choose between collaborative filtering or content-based filtering.
 
-&#x2A3B; Evaluation Metrics – Use RMSE, MAE, or Precision@K to assess recommendation performance.
+&#x2A3B; Evaluation Metrics – Use RMSE or MAE to assess recommendation performance.
 
 
 ### Challenges & Considerations
@@ -44,3 +45,184 @@ The objective is to examine and use the dataset to boost user engagement by deve
 * Cold Start Problem: New users/movies lack enough data for accurate recommendations.
 * Bias in Ratings: Some users may consistently rate higher or lower than others.
 * Scalability: The model should be efficient enough to handle large datasets in real-world applications.
+
+
+# 2 Data Understanding
+The MovieLens dataset (ml-latest-small) comprises user-generated movie ratings as well as free-text tags. This dataset is commonly used in recommendation systems, where businesses try to improve the customer experience by proposing movies based on user interests.Companies like Netflix, Hulu, and Amazon Prime Video use similar databases to boost user engagement, retention, and satisfaction through personalized suggestions.
+
+The dataset consists of 5-star ratings and free-text tags from MovieLens, an online movie recommendation service.
+
+Users rate movies on a 1-5 star scale (higher ratings indicate better user satisfaction).
+Tags are free-text descriptions provided by users to describe movies (e.g., "thriller," "comedy," "Oscar-winning").
+The dataset is anonymized (users are represented by IDs).
+
+|File Name | Description|
+|----------|------------|
+|ratings.csv |	Contains user ratings for movies (1-5 scale).|
+|movies.csv |	Metadata including movie titles and genres.|
+|tags.csv |	Free-text tags assigned by users to movies.|
+|links.csv |	Provides mappings to external movie databases (IMDB, TMDb).|
+
+
+**Identifiers**
+- *userId*: random and anonymous IDs given to identify users. MovieLens users were selected at random for inclusion. Their ids have been anonymized. User ids are consistent between `ratings.csv` and `tags.csv` (i.e., the same id refers to the same user across the two files)
+
+- *movieId*: IDs given to identify movies. Since only those movies which have 1 or more rating or tag are selected, it is not a complete sequence. Movie ids are consistent between `ratings.csv`, `tags.csv`, `movies.csv`, and `links.csv` (i.e., the same id refers to the same movie across these four data files)
+
+**Movies Data columns:**
+- *movieId*:Unique movie identifier.
+- *title:* Movie title, and include the year of release in parentheses.
+- *genre:* a pipe-separated list, and are selected from the following: Action, Adventure, Animation, Children's, Comedy, Crime, Documentary, Drama, Fantasy, Film-Noir, Horror, Musical, Mystery, Romance, 
+Sci-Fi, Thriller, War, Western and "no genres listed"
+
+**Ratings Data columns:**
+- *userId* – Unique identifier for each user.
+- *movieId* – Unique identifier for each movie.
+- *rating:* User rating (1-5 stars), with half-star increments (0.5 stars - 5.0 stars).
+- *timestamp:* Time when the rating was given.
+
+**Links data features:**
+- *movieId:* Unique identifier for each movie.
+- *imdbId:* an identifier for movies used by <http://www.imdb.com>
+- *tmdbId:* an identifier for movies used by <https://www.themoviedb.org>
+
+**Tags data features:**
+- *userId* – Unique user identifier.
+- *movieId* – Movie being tagged.
+- *tag:* Free-text tag (e.g., "thrilling," "mind-blowing," "classic").
+- *timestamp:* Time when the tag was added
+
+# Data understanding
+
+## 3.1 Data Cleaning
+
+### 3.1.1 Handling Missing Values
+Check movies data for null values
+Check ratings data for null values
+Check tags data for null values
+Check links data for null values
+Replace nulls with a '0'
+
+### 3.1.2 Duplicate Values
+
+Let us che the datasets for duplicate values.
+
+### 3.1.3 Column Editing
+We can drop columns that will not be of use as of now.
+
+### 3.1.4 Merging the datasets and handling missing values & duplicates
+
+# 4. Exploring the Dataset
+## 4.1 Univariate
+
+### 4.1.1 Ratings distribution
+Let us use a histplot to see distribitons of the ratings
+
+
+### 4.1.2 Top 10 most rated
+
+
+### 4.1.3 Most common genres
+
+
+### 4.1.4 User activity
+
+
+## 4.2 Bivariate
+### 4.2.1 Average Rating per Movie
+
+
+### 4.2.2 Rating vs. Number of Ratings (Popularity Bias)
+
+
+### 4.2.3 Relationship Between Movie Ratings & Number of Ratings
+# Calculate mean rating & count per movie
+
+
+### 4.2.4 Genre vs. Average Rating
+
+
+### 4.2.5 Relationship Between User Activity & Average Rating Given
+
+
+### 4.2.6 User Activity vs. Average Rating
+
+
+## 4.3 Multivariate
+### 4.3.1 Feature Correlations Heatmap
+
+
+### 4.3.2 Rating Trends Over Time
+
+
+### 4.3.3 Genre Distribution Across Different Rating Levels
+
+
+### 4.3.4 Top 10 most correlated movies
+
+
+<!-- #\Show most correlated movies -->
+print(corr_movie.head(10))
+
+
+# 5. Feature Transformation
+## 5.1 Encoding Categorical Features
+
+
+## 5.2 Creating Temporal Features
+
+
+# 5. Modeling
+
+    
+## 5.1 Matrix Factorization (SVD)
+Singular Value Decomposition (SVD) decomposes the user-item matrix into latent factors.
+
+## 5.2 K-Nearest Neighbors (KNN-Based)
+
+The SVD Model has an RMSE of 0.63
+
+The KNN model has a better score with an RMSE score of 0.91 (91%)
+
+# 6. Model Tuning
+The best model between the two for this recommendation system is the KNN model.
+
+But due to memory usage challenges, we will fine tune the SVD model to see how the performance changes
+
+## 6.1 The SVD Model Fine-tuning
+
+
+## 6.2 Fine-tuning the KNN model
+
+# 7. Model Evaluation
+**Compare results**
+print(f"Tuned Model Comparison:")
+print(f"Initial SVD RMSE: {svd_rmse}")
+print(f"Initial KNN RMSE: {knn_rmse}")
+**Comment**
+The KNN model had a higher RMSE of $0.63$ as compared to the SVD RMSE score of $0.91$
+# Compare results
+print(f"Basic and Tuned Model Comparison:")
+print(f"Initial SVD RMSE: {svd_rmse}")
+print(f"Best SVD RMSE: {svd_best_rmse}")
+# print(f"Best KNN RMSE: {knn_best_rmse }")
+**Comment**
+We can only get a score for the fine-tuned SVD model. The fine-tuned model has an improved score, $0.84$ after using the best parameters from the gridsearchCV.
+
+
+
+# 8. Conclusion
+From the model created:
+1. A K_Nearest Neighbours (KNN) model performs much better than and SVD model for such a recommendation system even without fine tuning. (Note: Requires resources to fine tune). Meaning it will be much improved.
+
+2. A collaborative-filtering method of recommendation gives different results compared to content-Based filtering.
+
+3. A user-specific model should use content-based as they are coser to user's preference. Though it does not automatically mean that different users will have same preferences despite similarity.
+
+# 9. Recommendations
+The recommendations are as follows:
+1. Modeling with KNN is much better or a good model for comparison.
+
+2. Other models should be tried to compare performances.
+
+3. When using KNN, consider the resources to use especially when fine-tuning the model.
