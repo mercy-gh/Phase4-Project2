@@ -161,59 +161,7 @@ We can drop columns that will not be of use as of now.
 ### 4.3.3 Genre Distribution Across Different Rating Levels
 ![Alt text](https://github.com/mercy-gh/Phase4-Project2/blob/main/Images/GenreDistributionAcrossDifferentRatingLevels.png)
 
-### 4.3.4 Top 10 most correlated movies
-
-<!-- #\Show most correlated movies -->
-print(corr_movie.head(10))
-
-
-# 5. Feature Transformation
-## 5.1 Encoding Categorical Features
-
-
-## 5.2 Creating Temporal Features
-
-
-# 5. Modeling
-
-    
-## 5.1 Matrix Factorization (SVD)
-Singular Value Decomposition (SVD) decomposes the user-item matrix into latent factors.
-
-## 5.2 K-Nearest Neighbors (KNN-Based)
-
-The SVD Model has an RMSE of 0.63
-
-The KNN model has a better score with an RMSE score of 0.91 (91%)
-
-# 6. Model Tuning
-The best model between the two for this recommendation system is the KNN model.
-
-But due to memory usage challenges, we will fine tune the SVD model to see how the performance changes
-
-## 6.1 The SVD Model Fine-tuning
-
-
-## 6.2 Fine-tuning the KNN model
-
-# 7. Model Evaluation
-**Compare results**
-print(f"Tuned Model Comparison:")
-print(f"Initial SVD RMSE: {svd_rmse}")
-print(f"Initial KNN RMSE: {knn_rmse}")
-**Comment**
-The KNN model had a higher RMSE of $0.63$ as compared to the SVD RMSE score of $0.91$
-# Compare results
-print(f"Basic and Tuned Model Comparison:")
-print(f"Initial SVD RMSE: {svd_rmse}")
-print(f"Best SVD RMSE: {svd_best_rmse}")
-# print(f"Best KNN RMSE: {knn_best_rmse }")
-**Comment**
-We can only get a score for the fine-tuned SVD model. The fine-tuned model has an improved score, $0.84$ after using the best parameters from the gridsearchCV.
-
-
-
-# 8. Conclusion
+# 5. Conclusion
 From the model created:
 1. A K_Nearest Neighbours (KNN) model performs much better than and SVD model for such a recommendation system even without fine tuning. (Note: Requires resources to fine tune). Meaning it will be much improved.
 
@@ -221,7 +169,7 @@ From the model created:
 
 3. A user-specific model should use content-based as they are coser to user's preference. Though it does not automatically mean that different users will have same preferences despite similarity.
 
-# 9. Recommendations
+# 6. Recommendations
 The recommendations are as follows:
 1. Modeling with KNN is much better or a good model for comparison.
 
