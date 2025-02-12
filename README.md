@@ -12,10 +12,15 @@ Many systems rely on generic rankings or trending lists that do not consider ind
 The goal is to create a movie recommendation system that can predict user preferences based on previous interactions. Specifically, we want to:
 
 ## 1.2 Objectives
-*   &#x2611; Analyze user ratings and tags to find patterns and trends.
-*   &#x2611; Create a recommendation model that incorporates collaborative filtering, content-based filtering, or hybrid approaches.
-*   &#x2611; Address critical issues such as data scarcity, cold start issues, and bias in user ratings.
-*   &#x2611; Assess model performance using relevant measures such as RMSE, MAE, and Precision@K.
+&#x2611; Analyze user ratings and tags to find patterns and trends.
+
+&#x2611; Create a recommendation model that incorporates collaborative filtering, content-based filtering, or hybrid approaches.
+
+&#x2611; Address critical issues such as data scarcity, cold start issues, and bias in user ratings.
+
+&#x2611; Assess model performance using relevant measures such as RMSE or MAE.
+
+
 
 ## 1.3 Proposed solution
 The objective is to examine and use the dataset to boost user engagement by developing a movie recommendation engine. Potential applications include:
@@ -31,13 +36,13 @@ The objective is to examine and use the dataset to boost user engagement by deve
 
 &#x2713; **Next Steps**
 
-&#x2A39; Exploratory Data Analysis (EDA) – Understand rating distributions, popular tags, and trends.
+&#x1f8ae; Exploratory Data Analysis (EDA) – Understand rating distributions, popular tags, and trends.
 
-&#x2A3B; Feature Engineering – Transform text tags into meaningful numerical features.
+&#x1f8ae; Feature Engineering – Transform text tags into meaningful numerical features.
 
-&#x2A39; Model Selection – Choose between collaborative filtering or content-based filtering.
+&#x1f8ae; Model Selection – Choose between collaborative filtering or content-based filtering.
 
-&#x2A3B; Evaluation Metrics – Use RMSE or MAE to assess recommendation performance.
+&#x1f8ae; Evaluation Metrics – Use RMSE or MAE to assess recommendation performance.
 
 
 ### Challenges & Considerations
@@ -116,50 +121,48 @@ We can drop columns that will not be of use as of now.
 ## 4.1 Univariate
 
 ### 4.1.1 Ratings distribution
-Let us use a histplot to see distribitons of the ratings
-
+![Alt text](Images\Distribution of Movie Ratings.png)
 
 ### 4.1.2 Top 10 most rated
-
+![Alt text](Images\Top 10 Most Rated Movies.png)
 
 ### 4.1.3 Most common genres
-
+![Alt text](Images\Most Common Movie Genres.png)
 
 ### 4.1.4 User activity
-
+![Alt text](Images\Number of Ratings per User.png)
 
 ## 4.2 Bivariate
 ### 4.2.1 Average Rating per Movie
-
+![Alt text](Images\Top 10 Highest Rated Movies (with a min of 50 ratings).png)
 
 ### 4.2.2 Rating vs. Number of Ratings (Popularity Bias)
-
+![Alt text](Images\Relationship Between Number of Ratings and Average Rating.png)
 
 ### 4.2.3 Relationship Between Movie Ratings & Number of Ratings
-# Calculate mean rating & count per movie
-
+![Alt text](Images\Number of Ratings per User.png)
 
 ### 4.2.4 Genre vs. Average Rating
-
+![Alt text](Images\Average Rating by Genre.png)
 
 ### 4.2.5 Relationship Between User Activity & Average Rating Given
-
+![Alt text](Images\Number of Ratings Given vs. Average Rating Given.png)
 
 ### 4.2.6 User Activity vs. Average Rating
-
+![Alt text](Images\User Activity vs. Average Rating Given.png)
 
 ## 4.3 Multivariate
 ### 4.3.1 Feature Correlations Heatmap
-
+![Alt text](Images\Feature Correlation.png)
 
 ### 4.3.2 Rating Trends Over Time
-
+![Alt text](Images\Average Rating Over Time.png)
 
 ### 4.3.3 Genre Distribution Across Different Rating Levels
-
+![Alt text](Images\Genre Distribution Across Different Rating Levels.png)
 
 ### 4.3.4 Top 10 most correlated movies
-
+![Alt text]()
 
 <!-- #\Show most correlated movies -->
 print(corr_movie.head(10))
