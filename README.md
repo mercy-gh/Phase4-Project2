@@ -99,29 +99,142 @@ Sci-Fi, Thriller, War, Western and "no genres listed"
 
 # Data understanding
 
+```md
+<pre>
+<code>
+# Example Python Cell
+import pandas as pd
+
+print("Hello, MovieLens!")
+</code>
+</pre>
+
+**imports** 
+**# import data manipulation libraries**
+import pandas as pd
+import numpy as np
+import scipy.sparse as sp
+
+**# import data visualisation libraries**
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+**# import modeling libraries**
+from sklearn.model_selection import train_test_split
+from surprise.model_selection import GridSearchCV#, cross_validate
+
+**# Surprise Libraries**
+from surprise.prediction_algorithms import KNNBasic
+from surprise import accuracy
+
+**# import Preprocessing and Metric Evaluation libraries**
+from sklearn.preprocessing import MultiLabelBinarizer, LabelEncoder, OneHotEncoder, StandardScaler
+from sklearn.metrics import mean_absolute_error#, root_mean_squared_error
+from sklearn.metrics.pairwise import cosine_similarity
+from collections import Counter
+
+import warnings; warnings.simplefilter('ignore')
+
+**# Get summary statistics of movies data**
+movies_data.describe()
+Understand ratings data
+
+**# view top 5 rows**
+ratings_data.head()
+
+# Get Summary info of the ratings dataframe
+ratings_data.info()
+*Observation*: All features have the right data type and it has no null values
+# Get summary statistics of ratings data
+ratings_data.describe()
+understand links data:
+# view top 5 rows
+links_data.head()
+# Get Summary info of the links dataframe
+links_data.info()
+*Observation*: All features have the right data type and it has $8$ null values
+# Get summary statistics of links data
+links_data.describe()
+Understand tags data:
+# view top 5 rows
+tags_data.head()
+*Comment*:
+The timestamp features may be converted to datetime where need be such as helping to observe trends
+# Get Summary info of the tags dataframe
+tags_data.info()
+*Observation*: All features have the right data type and it has no null values
+# Get summary statistics of tags data
+tags_data.describe()
+# 3 Data Preparation
+This involves activities such us handling missing values, checking for duplicates, dropping unnecessary columns, etc.
 ## 3.1 Data Cleaning
 
 ### 3.1.1 Handling Missing Values
-Check movies data for null values
-Check ratings data for null values
-Check tags data for null values
-Check links data for null values
-Replace nulls with a '0'
+# Check movies data for null values
+movies_data.isnull().sum()
+# Check ratings data for null values
+ratings_data.isnull().sum()
+# Check tags data for null values
+tags_data.isnull().sum()
+# Check links data for null values
+links_data.isna().sum()
+
+Links data has missing values. Let us see the rows with the missing values since they are few.
+# List the rows with nulls
+links_data[links_data['tmdbId'].isnull()]
+The links data had $8$ missing values. Let's check
+
+Since we dont have the exact tmdbId of the movies with null values, we can then replace the nulls with a '0'.
+# Replace nulls with a '0'
+links_data.fillna(0, inplace=True)
+# Check nulls
+links_data.isna().sum()
 
 ### 3.1.2 Duplicate Values
 
 Let us che the datasets for duplicate values.
+# Check duplicates
+movies_data.duplicated().sum()
+# Check duplicates
+ratings_data.duplicated().sum()
+# Check duplicates
+tags_data.duplicated().sum()
+# Check duplicates
+links_data.duplicated().sum()
+*Comment*:
 
+No duplicates in all the datasets
 ### 3.1.3 Column Editing
-We can drop columns that will not be of use as of now.
+We can drop columns that will not be of use as of now. This will include the timestamp, imdbId & tmdbId columns
 
+We can now merge the data to have one dataset to explore.
 ### 3.1.4 Merging the datasets and handling missing values & duplicates
+# Merge ratings with movie titles
+merged_df = ratings_data.merge(movies_data, on="movieId", how="left")
+merged_df.info()
+# Merge with the tags data
+merged_df = merged_df.merge(tags_data[['userId', 'movieId', 'tag']], on=["userId", "movieId"], how="left")
+merged_df.info()
+*Observation:*
+The tag column has null values
+# Check null values
+merged_df.isnull().sum()
+The merged data has 99,201 values missing on the tags column. The dtype is object (string).
+
+We can then handle the null values by replacing 'null' by 'Unknown'
+# Replace nulls
+merged_df.fillna("Unknown", inplace=True)
+# Recheck nulls
+merged_df.isna().sum()
+# Check for duplicates
+merged_df.duplicated().sum()
+
 
 # 4. Exploring the Dataset
 ## 4.1 Univariate
 
 ### 4.1.1 Movie Ratings distribution
-[Alt text](https://github.com/mercy-gh/Phase4-Project2/blob/main/Images/DistributionofMovieRatings.png)
+![Alt text](https://github.com/mercy-gh/Phase4-Project2/blob/main/Images/DistributionofMovieRatings.png)
 
 ### 4.1.2 Top 10 most rated
 ![Alt text](https://github.com/mercy-gh/Phase4-Project2/blob/main/Images/Top10MostRatedMovies.png)
