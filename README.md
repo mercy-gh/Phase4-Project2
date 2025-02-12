@@ -120,49 +120,48 @@ We can drop columns that will not be of use as of now.
 # 4. Exploring the Dataset
 ## 4.1 Univariate
 
-### 4.1.1 Ratings distribution
-[Alt text](Images\Distribution of Movie Ratings.png)
+### 4.1.1 Movie Ratings distribution
+[Alt text](https://github.com/mercy-gh/Phase4-Project2/blob/main/Images/DistributionofMovieRatings.png)
 
 ### 4.1.2 Top 10 most rated
-![Alt text]("Images\Top 10 Most Rated Movies.png")
+![Alt text](https://github.com/mercy-gh/Phase4-Project2/blob/main/Images/Top10MostRatedMovies.png)
 
 ### 4.1.3 Most common genres
-![Alt text]("Images\Most Common Movie Genres.png")
+![Alt text](https://github.com/mercy-gh/Phase4-Project2/blob/main/Images/MostCommonMovieGenres.png")
 
 ### 4.1.4 User activity
-![Alt text](Images\Number of Ratings per User.png)
+![Alt text](https://github.com/mercy-gh/Phase4-Project2/blob/main/ImagesNumberofRatingsperUser.png)
 
 ## 4.2 Bivariate
 ### 4.2.1 Average Rating per Movie
-![Alt text](Images\Top 10 Highest Rated Movies (with a min of 50 ratings).png)
+![Alt text](https://github.com/mercy-gh/Phase4-Project2/blob/main/ImagesTop10HighestRatedMovies(withaminof50ratings).png)
 
 ### 4.2.2 Rating vs. Number of Ratings (Popularity Bias)
-![Alt text](Images\Relationship Between Number of Ratings and Average Rating.png)
+![Alt text](https://github.com/mercy-gh/Phase4-Project2/blob/main/Images/RelationshipBetweenNumberofRatingsandAverageRating.png)
 
 ### 4.2.3 Relationship Between Movie Ratings & Number of Ratings
-![Alt text](Images\Number of Ratings per User.png)
+![Alt text](https://github.com/mercy-gh/Phase4-Project2/blob/main/Images/NumberofRatingsperUser.png)
 
 ### 4.2.4 Genre vs. Average Rating
-![Alt text](Images\Average Rating by Genre.png)
+![Alt text](https://github.com/mercy-gh/Phase4-Project2/blob/main/Images/AverageRatingbyGenre.png)
 
 ### 4.2.5 Relationship Between User Activity & Average Rating Given
-![Alt text](Images\Number of Ratings Given vs. Average Rating Given.png)
+![Alt text](https://github.com/mercy-gh/Phase4-Project2/blob/main/Images/NumberofRatingsGivenvsAverageRatingGiven.png)
 
 ### 4.2.6 User Activity vs. Average Rating
-![Alt text](Images\User Activity vs. Average Rating Given.png)
+![Alt text](https://github.com/mercy-gh/Phase4-Project2/blob/main/Images/UserActivityvsAverageRatingGiven.png)
 
 ## 4.3 Multivariate
 ### 4.3.1 Feature Correlations Heatmap
-![Alt text](Images\Feature Correlation.png)
+![Alt text](https://github.com/mercy-gh/Phase4-Project2/blob/main/Images/FeatureCorrelation.png)
 
 ### 4.3.2 Rating Trends Over Time
-![Alt text](Images\Average Rating Over Time.png)
+![Alt text](https://github.com/mercy-gh/Phase4-Project2/blob/main/Images/AverageRatingOvertime.png)
 
 ### 4.3.3 Genre Distribution Across Different Rating Levels
-![Alt text](Images\Genre Distribution Across Different Rating Levels.png)
+![Alt text](https://github.com/mercy-gh/Phase4-Project2/blob/main/Images/GenreDistributionAcrossDifferentRatingLevels.png)
 
 ### 4.3.4 Top 10 most correlated movies
-![Alt text]()
 
 <!-- #\Show most correlated movies -->
 print(corr_movie.head(10))
